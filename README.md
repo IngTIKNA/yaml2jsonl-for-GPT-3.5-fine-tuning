@@ -13,6 +13,10 @@ ________________________________________________________________________________
 
 <ins>Installation</ins>: Clone this repository and install the necessary dependencies outlined in the requirements.txt file.
 
+```bash
+pip install -r requirements
+```
+
 <ins>Execution</ins>: Run the converter script, specifying the input YAML file(s) and desired output directory:
 
 ```bash
