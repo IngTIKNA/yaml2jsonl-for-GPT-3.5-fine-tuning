@@ -17,9 +17,11 @@ Cross-Platform Compatibility: Compatible with various operating systems, ensurin
 ____________________________________________________________________________________________________________________________________________
 # Usage
 
-<ins>1.Installation</ins>: Clone this repository and install the necessary dependencies outlined in the requirements.txt file.
+<ins>Installation</ins>: Clone this repository and install the necessary dependencies outlined in the requirements.txt file.
 
-<ins>2.Configuration</ins>: Customize the mapping configurations in the provided config.yaml file to suit your specific YAML structure.
+<ins>Execution</ins>: Run the converter script, specifying the input YAML file(s) and desired output directory:
 
-<ins>3.Execution</ins>: Run the converter script, specifying the input YAML file(s) and desired output directory:
+```bash
+python dataset_generator.py --yaml_file <path_to_yaml_file> --output_path <output_directory>
+```
 ____________________________________________________________________________________________________________________________________________
