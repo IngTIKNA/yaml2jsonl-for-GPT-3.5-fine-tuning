@@ -1,4 +1,11 @@
 # YAML to JSONL Converter for GPT Fine-Tuning
+
+
+
+https://github.com/IngTIKNA/yaml2jsonl-for-GPT-3.5-fine-tuning/assets/29532729/793ec9a8-1614-44eb-84e9-a5a2bfc2fba5
+
+
+
 ____________________________________________________________________________________________________________________________________________
 ## Overview
 This Python project provides a versatile tool for converting YAML formatted data into JSONL (JSON Lines) format, facilitating preparation of data for fine-tuning GPT (Generative Pre-trained Transformer) models.
