@@ -7,7 +7,7 @@ from datetime import datetime
 #===================================================================================================================#
 #                                               YAML2JSONL FUNCTION                                                 #
 #===================================================================================================================#
-def yaml2jsonl(file_name, file_id):
+def yaml2jsonl(file_name, file_id, isShuffle):
     msg_list = []
     # Open yaml file
     print("Adding examples from file:", file_name)
@@ -32,10 +32,9 @@ def yaml2jsonl(file_name, file_id):
             msg_list.append(entry)
 
     # Shuffle messages
-    #random.shuffle(msg_list)
+    if(isShuffle):
+        random.shuffle(msg_list)
     
-
-
     current_datetime = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
     filename = "fine_tuning/fine_tuning_{}_".format(file_id) + current_datetime + ".jsonl"
 
@@ -48,14 +47,14 @@ def yaml2jsonl(file_name, file_id):
 #===================================================================================================================#
 #                                               	MAIN FUNCTION                                                   #
 #===================================================================================================================#
-def main(yaml_files=[]):
+def main(yaml_files=[], isShuffle=False):
 
     if len(yaml_files)==0:
         print("Please provide the path to the YAML file using the '--yaml_files' argument")
         exit()
 
     for file_id in range(len(yaml_files)):
-        yaml2jsonl(yaml_files[file_id], file_id)
+        yaml2jsonl(file_name=yaml_files[file_id], file_id=file_id, isShuffle=isShuffle)
 
 
 if __name__ == '__main__':
@@ -65,7 +64,8 @@ if __name__ == '__main__':
     
     # Adding optional argument
     parser.add_argument("-y", "--yaml_files", nargs='+', help = "A space defined list of YAML files containing the examples")
-    
+    parser.add_argument("-s", "--shuffle_data", type=bool, help = "Flag determining whether the data will be shuffled before conversion")
+
     # Read arguments from command line
     args = parser.parse_args()
 
@@ -77,4 +77,4 @@ if __name__ == '__main__':
         print("Please provide the path to the YAML file using the '--yaml_files' argument.")
         exit()
 
-    main(args.yaml_files)
+    main(yaml_files=args.yaml_files, isShuffle=args.shuffle_data)
